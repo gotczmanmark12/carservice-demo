@@ -8,6 +8,12 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll('.counter');
@@ -67,3 +73,5 @@ function revealOnScroll() {
 
 
 window.addEventListener('load', revealOnScroll);
+
+
