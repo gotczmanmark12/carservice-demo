@@ -9,13 +9,6 @@ hamburger.addEventListener('click', () => {
 });
 
 
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll('.counter');
     let animated = false;
@@ -47,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             runCounters();
             animated = true;
         }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.2 }); 
 
     if (aboutSection) {
         observer.observe(aboutSection);

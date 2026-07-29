@@ -215,6 +215,9 @@ header {
     animation:gradientShift 15s ease infinite;
     color:#ffffff;
     padding:100px 20px;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .hero-content h1{
@@ -463,5 +466,29 @@ header {
     }
     .about-image-wrapper {
         height: 300px;
+    }
+}
+@media (max-width: 768px) {
+    
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    
+    .about-container {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+    }
+
+    
+    .about-stats {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    
+    .stat-box {
+        width: 100%;
     }
 }
