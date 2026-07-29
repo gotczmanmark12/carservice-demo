@@ -7,11 +7,15 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
  body{
     background-color: #121212;
-     color: #ffffff;
+    color: #ffffff;
+    overflow-x: hidden;
+    background-color: #05070a;
+    -webkit-font-smoothing: antialiased;
 }
 
 header {
@@ -455,10 +459,10 @@ header {
 }
 
 .about-image-wrapper:hover img {
-    transform: scale(1.03); /* Finom zoom hoverre */
+    transform: scale(1.03);
 }
 
-/* Reszponzivitás: Mobilon egymás alá esnek az oszlopok */
+
 @media (max-width: 900px) {
     .about-container {
         grid-template-columns: 1fr;
@@ -491,4 +495,15 @@ header {
     .stat-box {
         width: 100%;
     }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }

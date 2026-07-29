@@ -46,3 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(aboutSection);
     }
 });
+
+
+// Szekciók és kártyák vajpuha beúszása görgetéskor
+window.addEventListener('scroll', revealOnScroll);
+
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.service-card, .about-container, .services h2');
+    
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('active');
+        }
+    });
+}
+
+
+window.addEventListener('load', revealOnScroll);
