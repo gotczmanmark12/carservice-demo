@@ -305,10 +305,13 @@ header {
     border-radius: 20px;
     overflow: hidden; 
     box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-    transition: all 0.4s ease;
+    transition: all 0.6s ease;
     text-align: left;
     display: flex;
     flex-direction: column;
+    transform: translateZ(0) !important;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 
@@ -335,6 +338,9 @@ header {
     mix-blend-mode: multiply; 
 }
 
+.service-card img {
+    transform: none !important;
+}
 
 .service-content {
     padding: 35px;
@@ -353,17 +359,15 @@ header {
     line-height: 1.8;
 }
 
-
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(2, 132, 199, 0.3);
+    transform: scale(1.03) translateZ(0) !important;
+    box-shadow: none !important;
     cursor: pointer;
 }
 
-/* About Us Szekció */
 .about {
     padding: 130px 20px;
-    /* Finom átmenet a Services sötétjéből egy picit eltérő, de harmonikus sötét tónusba */
+   
     background: linear-gradient(to bottom, #05070a, #090d16);
     color: #ffffff;
     position: relative;
@@ -374,12 +378,12 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Két egyenlő oszlop gépen */
+    grid-template-columns: 1fr 1fr; 
     gap: 60px;
     align-items: center;
 }
 
-/* Szöveges rész */
+
 .about-text h2 {
     font-size: 42px;
     font-weight: 800;
@@ -389,7 +393,7 @@ header {
 
 .about-lead {
     font-size: 20px;
-    color: #0284c7; /* Élénk kék kiemelés a vezérszövegnek */
+    color: #0284c7; 
     margin-bottom: 20px;
     line-height: 1.5;
     font-weight: 500;
@@ -402,7 +406,7 @@ header {
     margin-bottom: 30px;
 }
 
-/* Statisztikák dobozai alul */
+
 .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -431,7 +435,7 @@ header {
     margin: 0;
 }
 
-/* Jobb oldali kép doboz */
+
 .about-image-wrapper {
     position: relative;
     width: 100%;
