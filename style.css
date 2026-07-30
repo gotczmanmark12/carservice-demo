@@ -174,15 +174,16 @@ header {
     .nav-menu {
         position: fixed;
         top: 73px;
-        left: -100%;
+        left: -100%; /* Alapból teljesen kint van balra */
         width: 100%;
         height: calc(100vh - 73px);
-        background-color: #121212;
-        transition: left 0.3s ease-in-out;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: #121212 !important; /* Biztosítjuk, hogy ne legyen átlátszó! */
+        transition: left 0.3s ease-in-out; /* Sima balra-jobbra csúszás */
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+    z-index: 999; /* Hogy mindig minden felett legyen */
     }
 
     .nav-menu.active {
