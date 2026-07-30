@@ -54,23 +54,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Szekciók és kártyák vajpuha beúszása görgetéskor
-window.addEventListener('scroll', revealOnScroll);
+// Szekciók és kártyák
+const revealElements = document.querySelectorAll('.service-card, .about-container, .services h2');
 
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.service-card, .about-container, .services h2');
+const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
+    const elementVisible = 100;
     
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
+    revealElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 100;
-        
         if (elementTop < windowHeight - elementVisible) {
             element.classList.add('active');
         }
     });
-}
+};
 
+window.addEventListener('scroll', () => {
+    requestAnimationFrame(revealOnScroll);
+});
 
 window.addEventListener('load', revealOnScroll);
 
