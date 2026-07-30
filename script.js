@@ -1,7 +1,6 @@
-
+// Mobil menü kezelése
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
@@ -15,6 +14,7 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
+// Számlálók animációja (Counter)
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll('.counter');
     let animated = false;
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const aboutSection = document.querySelector('.about');
     
-    const observer = new IntersectionObserver((entries, observer) => {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
         if (entries[0].isIntersecting && !animated) {
             runCounters();
             animated = true;
@@ -49,30 +49,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.2 }); 
 
     if (aboutSection) {
-        observer.observe(aboutSection);
+        counterObserver.observe(aboutSection);
     }
 });
 
+// Vajpuha beúszás (IntersectionObserver - laggmentes, CPU barát megoldás scroll helyett)
+document.addEventListener("DOMContentLoaded", () => {
+    const revealElements = document.querySelectorAll('.reveal');
 
-// Szekciók és kártyák
-const revealElements = document.querySelectorAll('.service-card, .about-container, .services h2');
-
-const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    const elementVisible = 100;
-    
-    revealElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('active');
-        }
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Ha már betűnt, nem figyeli tovább feleslegesen
+            }
+        });
+    }, {
+        threshold: 0.15, // Mikor kezdjen el látszódni
+        rootMargin: "0px 0px -50px 0px"
     });
-};
 
-window.addEventListener('scroll', () => {
-    requestAnimationFrame(revealOnScroll);
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
 });
-
-window.addEventListener('load', revealOnScroll);
-
-
