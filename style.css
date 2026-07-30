@@ -138,6 +138,10 @@ header {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
+.mobile-only-link {
+    display: none !important;
+}
+
 .hamburger {
     display: none;
     cursor: pointer;
@@ -468,6 +472,10 @@ header {
     }
     .stat-box {
         width: 100%;
+    }
+
+    .mobile-only-link {
+        display: inline-block !important;
     }
 }
 
