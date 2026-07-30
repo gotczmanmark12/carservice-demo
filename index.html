@@ -110,6 +110,69 @@
                 </div>
             </div>
         </section>
+
+        <section class="gallery" id="galery">
+    <div class="gallery-container">
+        <h2 class="reveal">Our Gallery</h2>
+        <p class="section-subtitle reveal">A glimpse into our workshop and daily work</p>
+        
+        <div class="gallery-filters reveal">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="workshop">Workshop</button>
+            <button class="filter-btn" data-filter="engine">Engine</button>
+            <button class="filter-btn" data-filter="tires">Tires</button>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item reveal" data-category="workshop">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Modern workshop interior" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Workshop View</span>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="engine">
+                <img src="images/motor.webp" alt="Engine diagnostics" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Engine Diagnostics</span>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="tires">
+                <img src="images/wheel.webp" alt="Tire service" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Tire & Wheel Service</span>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="workshop">
+                <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=800&q=80" alt="Car repair process" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Precision Repair</span>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="engine">
+                <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" alt="Mechanic working" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Expert Mechanics</span>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="tires">
+                <img src="images/tire1.webp" alt="Electrical system check" loading="lazy">
+                <div class="gallery-overlay">
+                    <span>Electrical Testing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view">
+</div>
     </main>
 
     <script src="script.js"></script>

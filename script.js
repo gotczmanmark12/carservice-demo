@@ -73,3 +73,59 @@ document.addEventListener("DOMContentLoaded", () => {
         revealObserver.observe(element);
     });
 });
+
+// --- GALLERY FILTER & LIGHTBOX ---
+document.addEventListener("DOMContentLoaded", () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    // Kategória szűrő logika
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Aktív gomb stílus váltás
+            document.querySelector('.filter-btn.active').classList.remove('active');
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.classList.remove('hide');
+                } else {
+                    item.classList.add('hide');
+                }
+            });
+        });
+    });
+
+    // Lightbox megnyitása képre kattintva
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const imgSrc = item.querySelector('img').getAttribute('src');
+            lightboxImg.setAttribute('src', imgSrc);
+            lightbox.classList.add('active');
+        });
+    });
+
+    // Lightbox bezárása
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // ESC billentyűre is záródjon be
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+});
