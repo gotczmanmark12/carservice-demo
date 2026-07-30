@@ -129,3 +129,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// --- CONTACT FORM DEMO LOGIC ---
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            formStatus.innerText = "Thank you! Your message has been sent successfully.";
+            formStatus.style.color = "#22c55e"; // Zöld szín
+            
+            contactForm.reset();
+            
+            setTimeout(() => {
+                formStatus.innerText = "";
+            }, 4000);
+        });
+    }
+});
